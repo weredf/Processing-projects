@@ -11,7 +11,8 @@ color diagR = #FF4500;
 color diagL = #4682B4;
 
 void setup() {
-  size(900, 900);
+  // set up size for 10 squares of 1 inch each
+  size(960, 960);
   noLoop();
 }
 
@@ -20,8 +21,9 @@ void draw() {
     beginRecord(SVG, "slwd-33-####.svg");
   }
   
-  // parameters
   background(bg);
+  
+  // parameters
   float alpha = 99;
   
   float tilesX = 10;
