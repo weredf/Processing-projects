@@ -47,24 +47,25 @@ void draw() {
       float posX = tileW * x;
       float posY = tileH * y;
       
-      // random selector
+      // random selectors
       int selector = int(random(4));
+      int selectorLength = int(random(6))+1;
 
       // draw horizontal, vertical, or diagonal line
       pushMatrix();
       translate(posX, posY);
-      if (selector == 0) {
+      if (selectorColor == 0) {
         stroke(vert, alpha);
-        line(tileW/2, 0, tileW/2, tileH*2);
-      } else if (selector == 1) {
+        line(tileW/2, 0, tileW/2, tileH*selectorLength);
+      } else if (selectorColor == 1) {
         stroke(hor, alpha);
-        line(0, tileH/2, tileW*2, tileH/2);
-      } else if (selector == 2) {
+        line(0, tileH/2, tileW*selectorLength, tileH/2);
+      } else if (selectorColor == 2) {
         stroke(diagR, alpha);
-        line(0, 0, tileW*2, tileH*2);
+        line(-tileW, -tileH, tileW*selectorLength, tileH*selectorLength);
       } else {
         stroke(diagL, alpha);
-        line(0, tileH*2, tileW*2, 0);
+        line(-tileW, tileH*selectorLength, tileW*selectorLength, -tileH);
       }
 
       popMatrix();
